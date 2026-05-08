@@ -1,6 +1,6 @@
 const translations = {
   en: {
-    brand: "Instrumentation Field Academy",
+    brand: "D~MAN Instrumentation Academy",
     tagline: "Install, wire and calibrate field instruments",
     navModules: "Modules",
     navDrawings: "Drawings",
@@ -84,7 +84,7 @@ const translations = {
     footer: "Training reference only. Follow site procedures, permits, isolation rules and the latest manufacturer manual."
   },
   es: {
-    brand: "Academia de Instrumentacion",
+    brand: "D~MAN Academia de Instrumentacion",
     tagline: "Instalar, cablear y calibrar instrumentos",
     navModules: "Modulos",
     navDrawings: "Planos",
