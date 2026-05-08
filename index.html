@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instrumentation Field Academy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Instrumentation Field Academy home">
+      <span class="brand-mark">IFA</span>
+      <span>
+        <strong data-i18n="brand">Instrumentation Field Academy</strong>
+        <small data-i18n="tagline">Install, wire and calibrate field instruments</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#modules" data-i18n="navModules">Modules</a>
+      <a href="#drawings" data-i18n="navDrawings">Drawings</a>
+      <a href="#plc-wiring">PLC wiring</a>
+      <a href="#calibration" data-i18n="navCalibration">Calibration</a>
+      <a href="#video-library">Videos</a>
+      <a href="#vendors" data-i18n="navVendors">Vendors</a>
+    </nav>
+    <label class="language">
+      <span data-i18n="language">Language</span>
+      <select id="languageSelect" aria-label="Select language">
+        <option value="en">English</option>
+        <option value="es">Espanol</option>
+        <option value="fr">Francais</option>
+        <option value="pt">Portugues</option>
+        <option value="zu">Zulu</option>
+        <option value="af">Afrikaans</option>
+      </select>
+    </label>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">Practical industrial training</p>
+        <h1 data-i18n="heroTitle">A hands-on web guide for instrumentation and VSD technicians.</h1>
+        <p data-i18n="heroBody">Choose an instrument type, study the wiring drawing, follow the installation sequence, then complete calibration and commissioning checks.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#modules" data-i18n="startLearning">Start learning</a>
+          <a class="ghost-button" href="#quick-reference" data-i18n="openChecklist">Open checklist</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of an instrument loop">
+        <svg viewBox="0 0 760 520" role="img">
+          <defs>
+            <linearGradient id="steel" x1="0" x2="1">
+              <stop offset="0" stop-color="#e9eef2"/>
+              <stop offset="1" stop-color="#aab7c1"/>
+            </linearGradient>
+            <linearGradient id="screen" x1="0" x2="1">
+              <stop offset="0" stop-color="#d8fff1"/>
+              <stop offset="1" stop-color="#8ce5cf"/>
+            </linearGradient>
+          </defs>
+          <rect x="40" y="390" width="680" height="34" rx="17" fill="#47525f"/>
+          <rect x="95" y="320" width="570" height="70" rx="18" fill="url(#steel)"/>
+          <rect x="160" y="100" width="178" height="174" rx="30" fill="#26323c"/>
+          <rect x="184" y="130" width="130" height="74" rx="12" fill="url(#screen)"/>
+          <text x="249" y="172" text-anchor="middle" font-size="24" font-family="Arial" fill="#102f2c">12.47 m</text>
+          <circle cx="249" cy="248" r="18" fill="#ffb84d"/>
+          <rect x="220" y="274" width="58" height="90" rx="10" fill="#5b6874"/>
+          <path d="M278 318 C385 245 430 192 515 170" fill="none" stroke="#21a179" stroke-width="8"/>
+          <rect x="510" y="110" width="150" height="110" rx="18" fill="#f8fbfc" stroke="#a8b4be" stroke-width="4"/>
+          <rect x="530" y="132" width="110" height="18" rx="4" fill="#b8c7d1"/>
+          <rect x="530" y="164" width="82" height="18" rx="4" fill="#21a179"/>
+          <path d="M585 220 L585 320" stroke="#26323c" stroke-width="8"/>
+          <circle cx="585" cy="356" r="30" fill="#dfe6eb" stroke="#26323c" stroke-width="8"/>
+          <path d="M530 355 H258" stroke="#ffb84d" stroke-width="8" stroke-dasharray="18 14"/>
+          <text x="386" y="345" text-anchor="middle" font-size="18" font-family="Arial" fill="#26323c">4-20 mA / HART</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Training filters">
+      <div>
+        <span class="label" data-i18n="filterType">Instrument type</span>
+        <div class="segmented" id="typeFilters">
+          <button class="active" data-filter="all" data-i18n="all">All</button>
+          <button data-filter="level" data-i18n="level">Level</button>
+          <button data-filter="flow" data-i18n="flow">Flow</button>
+          <button data-filter="pressure" data-i18n="pressure">Pressure</button>
+          <button data-filter="temperature" data-i18n="temperature">Temperature</button>
+          <button data-filter="analytical">Analytical</button>
+          <button data-filter="control">Control</button>
+          <button data-filter="safety">Safety</button>
+          <button data-filter="mechanical">Mechanical</button>
+          <button data-filter="vsd" data-i18n="vsd">VSD</button>
+        </div>
+      </div>
+      <div class="search-box">
+        <label for="moduleSearch" data-i18n="search">Search</label>
+        <input id="moduleSearch" type="search" placeholder="4-20 mA, radar, VSD, HART" data-i18n-placeholder="searchPlaceholder">
+      </div>
+    </section>
+
+    <section class="section" id="modules">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="moduleEyebrow">Training modules</p>
+        <h2 data-i18n="moduleTitle">Select a device and learn the correct field method.</h2>
+      </div>
+      <div class="module-grid" id="moduleGrid">
+        <article class="module-card" data-type="level" data-keywords="vega endress siemens radar level hart 4-20 ma">
+          <div class="photo-panel radar"></div>
+          <span class="chip" data-i18n="level">Level</span>
+          <h3 data-i18n="radarTitle">Radar level transmitter</h3>
+          <p data-i18n="radarText">For Vega VEGAPULS, Endress+Hauser Micropilot, Siemens Sitrans LR and similar radar instruments.</p>
+          <ol>
+            <li data-i18n="radarStep1">Confirm nozzle position, range, process temperature and dielectric.</li>
+            <li data-i18n="radarStep2">Wire loop power, screen the cable and check polarity before energizing.</li>
+            <li data-i18n="radarStep3">Set empty and full distances, damping, output mode and echo suppression.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="flow" data-keywords="mag flow coriolis vortex siemens endress abb yokogawa">
+          <div class="photo-panel flowmeter"></div>
+          <span class="chip" data-i18n="flow">Flow</span>
+          <h3 data-i18n="flowTitle">Flow measurement</h3>
+          <p data-i18n="flowText">Magnetic, Coriolis, vortex and DP flow systems from leading automation vendors.</p>
+          <ol>
+            <li data-i18n="flowStep1">Verify pipe orientation, straight runs, grounding rings and process fill.</li>
+            <li data-i18n="flowStep2">Connect power, signal, pulse and communication terminals as per datasheet.</li>
+            <li data-i18n="flowStep3">Zero the meter, set engineering units, span and totalizer behavior.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="pressure" data-keywords="pressure dp transmitter rosemount yokogawa endress siemens">
+          <div class="photo-panel pressure"></div>
+          <span class="chip" data-i18n="pressure">Pressure</span>
+          <h3 data-i18n="pressureTitle">Pressure and DP transmitter</h3>
+          <p data-i18n="pressureText">Gauge, absolute and differential pressure transmitters for tanks, lines and filters.</p>
+          <ol>
+            <li data-i18n="pressureStep1">Mount above or below tapping points according to gas, liquid or steam service.</li>
+            <li data-i18n="pressureStep2">Check impulse tubing, manifolds, vents, drains and isolation valves.</li>
+            <li data-i18n="pressureStep3">Apply five-point calibration and document as-found and as-left results.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="temperature" data-keywords="rtd thermocouple temperature transmitter head mount">
+          <div class="photo-panel temperature"></div>
+          <span class="chip" data-i18n="temperature">Temperature</span>
+          <h3 data-i18n="tempTitle">Temperature loop</h3>
+          <p data-i18n="tempText">RTD, thermocouple and head-mount transmitter installation for process temperature.</p>
+          <ol>
+            <li data-i18n="tempStep1">Inspect thermowell insertion length, lagging and vibration risk.</li>
+            <li data-i18n="tempStep2">Wire 2, 3 or 4 wire RTD correctly and keep thermocouple polarity intact.</li>
+            <li data-i18n="tempStep3">Simulate sensor input and trim transmitter output to the control system.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="vsd" data-keywords="vsd vfd drive motor siemens abb danfoss schneider rockwell weg">
+          <div class="photo-panel vsd"></div>
+          <span class="chip" data-i18n="vsd">VSD</span>
+          <h3 data-i18n="vsdTitle">Variable speed drive</h3>
+          <p data-i18n="vsdText">Install, wire and commission VSDs/VFDs for pumps, fans, conveyors and mixers.</p>
+          <ol>
+            <li data-i18n="vsdStep1">Confirm supply, motor nameplate, enclosure rating, cooling space and earthing.</li>
+            <li data-i18n="vsdStep2">Separate power and control wiring, fit EMC glands and connect STO if required.</li>
+            <li data-i18n="vsdStep3">Enter motor data, acceleration, deceleration, control source and protection limits.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="analytical" data-keywords="ph orp conductivity dissolved oxygen chlorine turbidity analyzer probe">
+          <div class="photo-panel analyzer"></div>
+          <span class="chip">Analytical</span>
+          <h3>pH, ORP, conductivity and analyzers</h3>
+          <p>Water, chemical, boiler, effluent and process analyzers with local transmitter and probe wiring.</p>
+          <ol>
+            <li>Install probe where flow is representative, bubbles are avoided and the sensor stays wet.</li>
+            <li>Use shielded low-noise cable, separate sensor cable from power, and keep junction boxes dry.</li>
+            <li>Calibrate with fresh certified buffers or standards, rinse between points and record temperature.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="control" data-keywords="control valve positioner actuator i p converter solenoid limit switch">
+          <div class="photo-panel valve"></div>
+          <span class="chip">Control</span>
+          <h3>Control valves and positioners</h3>
+          <p>Pneumatic, electro-pneumatic and smart positioners used on globe, ball, butterfly and damper actuators.</p>
+          <ol>
+            <li>Check air supply quality, tubing leaks, actuator spring range and mechanical linkage travel.</li>
+            <li>Wire 4-20 mA command, feedback, limit switches and solenoids to the correct PLC or DCS channels.</li>
+            <li>Run auto-stroke, verify fail action, set split range if used and confirm valve travel at 0, 25, 50, 75 and 100 percent.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="safety" data-keywords="gas detector flame detector smoke fire hazardous area lel toxic oxygen">
+          <div class="photo-panel gas"></div>
+          <span class="chip">Safety</span>
+          <h3>Gas, flame and fire detection</h3>
+          <p>LEL, toxic gas, oxygen deficiency, flame scanners, smoke and heat detectors for plant protection systems.</p>
+          <ol>
+            <li>Mount at the correct height for the gas density and keep detectors clear of water, dust and dead-air zones.</li>
+            <li>Wire power, signal and alarm contacts through approved barriers or isolators where required.</li>
+            <li>Perform bump test and calibration with certified gas; verify PLC alarms, voting logic and trip action.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="mechanical" data-keywords="vibration speed proximity encoder tachometer load cell weighing belt scale">
+          <div class="photo-panel vibration"></div>
+          <span class="chip">Mechanical</span>
+          <h3>Vibration, speed and weighing</h3>
+          <p>Accelerometers, proximity probes, tachometers, encoders, load cells, belt scales and weigh feeders.</p>
+          <ol>
+            <li>Mount sensors on clean, rigid surfaces and route cables away from VSD output and high-current conductors.</li>
+            <li>Wire IEPE, proximity driver, pulse, encoder or mV/V load cell signals into the correct module type.</li>
+            <li>Calibrate zero/span with known mass, speed reference, shaker table or vendor simulator as applicable.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="level" data-keywords="ultrasonic guided wave radar capacitance displacer float switch level switch">
+          <div class="photo-panel switchbank"></div>
+          <span class="chip">Switches</span>
+          <h3>Level, pressure and temperature switches</h3>
+          <p>Point-level, pressure, flow and temperature switches used for alarms, permissives and protection.</p>
+          <ol>
+            <li>Install where the process actually reaches the switch and where vibration or turbulence will not chatter the contact.</li>
+            <li>Wire dry contacts to digital input common correctly; use interposing relays for different voltages.</li>
+            <li>Prove switch point and reset point with a controlled process, hand pump, bath or simulator.</li>
+          </ol>
+        </article>
+        <article class="module-card" data-type="all" data-keywords="plc dcs junction box marshalling io loop test">
+          <div class="photo-panel marshalling"></div>
+          <span class="chip" data-i18n="wiring">Wiring</span>
+          <h3 data-i18n="loopTitle">Loop checking and handover</h3>
+          <p data-i18n="loopText">Trace every circuit from field device to junction box, marshalling cabinet, PLC or DCS input.</p>
+          <ol>
+            <li data-i18n="loopStep1">Megger cables only when devices are disconnected and site rules allow it.</li>
+            <li data-i18n="loopStep2">Inject 4, 12 and 20 mA and confirm correct tag, scaling and alarm direction.</li>
+            <li data-i18n="loopStep3">Record cable number, terminal number, range, units and final status.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="section compact-reference" id="instrument-index">
+      <div class="section-head">
+        <p class="eyebrow">Industry instrument index</p>
+        <h2>Common instrument families found in modern plants.</h2>
+        <p>This list covers the main families a technician will meet in mining, water, food, oil and gas, chemical, power, paper, cement and manufacturing plants.</p>
+      </div>
+      <div class="index-grid">
+        <article><h3>Level</h3><p>Radar, guided wave radar, ultrasonic, hydrostatic, DP level, capacitance, nuclear, displacer, float, vibrating fork and point-level switches.</p></article>
+        <article><h3>Flow</h3><p>Magnetic, Coriolis, vortex, ultrasonic, thermal mass, turbine, positive displacement, open-channel, DP orifice, venturi and annubar.</p></article>
+        <article><h3>Pressure</h3><p>Gauge, absolute, vacuum, DP, remote seal, sanitary diaphragm, pressure switch and safety pressure monitoring.</p></article>
+        <article><h3>Temperature</h3><p>RTD, thermocouple, thermistor, infrared pyrometer, temperature switch, head transmitter and multi-point temperature assembly.</p></article>
+        <article><h3>Analytical</h3><p>pH, ORP, conductivity, resistivity, dissolved oxygen, chlorine, turbidity, suspended solids, silica, sodium, moisture and gas analyzers.</p></article>
+        <article><h3>Final control</h3><p>Control valve, smart positioner, I/P converter, solenoid valve, on/off actuator, damper actuator, MOV and pneumatic actuator.</p></article>
+        <article><h3>Rotating equipment</h3><p>Vibration, proximity probe, speed pickup, tachometer, encoder, bearing temperature, lube oil pressure and motor protection.</p></article>
+        <article><h3>Weighing</h3><p>Load cell, weighing transmitter, belt scale, weigh feeder, platform scale, silo weighing and batching instruments.</p></article>
+        <article><h3>Safety and detection</h3><p>LEL gas, toxic gas, oxygen, flame, smoke, heat, area siren, beacon, emergency stop and safety relay interfaces.</p></article>
+        <article><h3>Electrical and power</h3><p>VSD/VFD, soft starter, power meter, energy meter, current transformer, voltage transducer and motor current monitor.</p></article>
+        <article><h3>Position and presence</h3><p>Proximity switch, photoelectric sensor, limit switch, reed switch, laser distance, LVDT, draw-wire and valve feedback.</p></article>
+        <article><h3>Communication</h3><p>HART, Profibus PA/DP, Profinet, Foundation Fieldbus, Modbus RTU/TCP, EtherNet/IP, IO-Link and WirelessHART gateways.</p></article>
+      </div>
+    </section>
+
+    <section class="section split" id="drawings">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="drawingEyebrow">Drawings and wiring</p>
+        <h2 data-i18n="drawingTitle">Typical field connections technicians see on site.</h2>
+      </div>
+      <div class="drawing-board">
+        <article class="drawing">
+          <h3 data-i18n="loopDrawing">2-wire 4-20 mA loop</h3>
+          <svg viewBox="0 0 680 360" role="img" aria-label="Two wire loop wiring diagram">
+            <rect x="36" y="56" width="150" height="92" rx="12" fill="#fff" stroke="#29343d" stroke-width="3"/>
+            <text x="111" y="92" text-anchor="middle" class="svg-label">24 VDC PSU</text>
+            <text x="74" y="130" class="svg-small">+</text>
+            <text x="144" y="130" class="svg-small">-</text>
+            <rect x="278" y="42" width="154" height="120" rx="16" fill="#e8f4f1" stroke="#21a179" stroke-width="4"/>
+            <text x="355" y="90" text-anchor="middle" class="svg-label">Transmitter</text>
+            <text x="320" y="132" class="svg-small">+</text>
+            <text x="394" y="132" class="svg-small">-</text>
+            <rect x="500" y="56" width="140" height="92" rx="12" fill="#fff" stroke="#29343d" stroke-width="3"/>
+            <text x="570" y="92" text-anchor="middle" class="svg-label">PLC AI</text>
+            <text x="536" y="130" class="svg-small">+</text>
+            <text x="604" y="130" class="svg-small">-</text>
+            <path d="M76 130 H320" stroke="#d05745" stroke-width="5" fill="none"/>
+            <path d="M394 130 H536" stroke="#d05745" stroke-width="5" fill="none"/>
+            <path d="M604 130 C604 260 142 260 142 130" stroke="#26323c" stroke-width="5" fill="none"/>
+            <path d="M355 162 V226" stroke="#778692" stroke-width="5" stroke-dasharray="10 10"/>
+            <text x="355" y="248" text-anchor="middle" class="svg-small">Cable screen earth at one end</text>
+            <rect x="255" y="292" width="200" height="34" rx="17" fill="#f3f7f8" stroke="#b8c7d1"/>
+            <text x="355" y="315" text-anchor="middle" class="svg-small">4 mA = LRV, 20 mA = URV</text>
+          </svg>
+        </article>
+        <article class="drawing">
+          <h3 data-i18n="vsdDrawing">VSD power and control</h3>
+          <svg viewBox="0 0 680 360" role="img" aria-label="VSD wiring diagram">
+            <rect x="40" y="48" width="142" height="106" rx="12" fill="#fff" stroke="#29343d" stroke-width="3"/>
+            <text x="111" y="84" text-anchor="middle" class="svg-label">MCC</text>
+            <text x="111" y="118" text-anchor="middle" class="svg-small">L1 L2 L3 PE</text>
+            <rect x="270" y="34" width="150" height="150" rx="18" fill="#26323c"/>
+            <rect x="296" y="60" width="98" height="42" rx="7" fill="#8ce5cf"/>
+            <text x="345" y="87" text-anchor="middle" class="svg-small">VSD</text>
+            <text x="345" y="136" text-anchor="middle" class="svg-small" fill="#fff">AI DI STO</text>
+            <rect x="520" y="64" width="112" height="78" rx="16" fill="#f3f7f8" stroke="#29343d" stroke-width="3"/>
+            <circle cx="576" cy="103" r="34" fill="none" stroke="#21a179" stroke-width="6"/>
+            <text x="576" y="112" text-anchor="middle" class="svg-label">M</text>
+            <path d="M182 92 H270" stroke="#d05745" stroke-width="6"/>
+            <path d="M420 92 H520" stroke="#d05745" stroke-width="6"/>
+            <path d="M420 118 H520" stroke="#ffb84d" stroke-width="6"/>
+            <path d="M420 144 H520" stroke="#637482" stroke-width="6"/>
+            <rect x="66" y="230" width="160" height="74" rx="12" fill="#fff" stroke="#21a179" stroke-width="3"/>
+            <text x="146" y="260" text-anchor="middle" class="svg-label">PLC / DCS</text>
+            <text x="146" y="286" text-anchor="middle" class="svg-small">Start, speed, fault</text>
+            <path d="M226 266 H345 V184" stroke="#21a179" stroke-width="5" stroke-dasharray="12 10" fill="none"/>
+            <text x="467" y="236" text-anchor="middle" class="svg-small">Keep control cable away from motor cable</text>
+          </svg>
+        </article>
+      </div>
+    </section>
+
+    <section class="section plc-section" id="plc-wiring">
+      <div class="section-head">
+        <p class="eyebrow">PLC wiring</p>
+        <h2>How field instruments connect to PLC input and output cards.</h2>
+        <p>Terminal names differ between PLC brands, but the principle is the same: match the signal type to the correct module, maintain polarity, keep shields controlled and prove the value at the PLC before handover.</p>
+      </div>
+      <div class="schematic-legend" aria-label="Wiring drawing legend">
+        <span><i class="legend-line red"></i> +24 V / loop positive</span>
+        <span><i class="legend-line blue"></i> Analog signal</span>
+        <span><i class="legend-line green"></i> Command / feedback</span>
+        <span><i class="legend-line dark"></i> 0 V / common / return</span>
+        <span><i class="legend-shield"></i> Cable shield to earth at one end</span>
+      </div>
+      <div class="plc-grid">
+        <article class="wiring-card">
+          <h3>2-wire 4-20 mA transmitter to analog input</h3>
+          <svg class="schematic-svg" viewBox="0 0 760 280" role="img" aria-label="Two wire transmitter to PLC analog input">
+            <text x="34" y="30" class="svg-title">DWG-PLC-AI-001 | loop powered transmitter</text>
+            <text x="346" y="30" class="svg-small">Cable: IS-201, 1 pair + screen</text>
+            <rect x="30" y="72" width="150" height="90" rx="10" class="box"/>
+            <text x="105" y="108" text-anchor="middle" class="svg-label">24 VDC</text>
+            <text x="78" y="144" class="svg-small">+</text><text x="138" y="144" class="svg-small">-</text>
+            <rect x="294" y="50" width="160" height="132" rx="12" class="green-box"/>
+            <text x="374" y="92" text-anchor="middle" class="svg-label">Field TX</text>
+            <text x="332" y="146" class="svg-small">+</text><text x="412" y="146" class="svg-small">-</text>
+            <rect x="566" y="72" width="160" height="90" rx="10" class="box"/>
+            <text x="646" y="108" text-anchor="middle" class="svg-label">PLC AI</text>
+            <text x="612" y="144" class="svg-small">I+</text><text x="682" y="144" class="svg-small">COM</text>
+            <path d="M78 144 H332" class="wire-red"/>
+            <path d="M412 144 H612" class="wire-red"/>
+            <path d="M682 144 C682 238 138 238 138 144" class="wire-dark"/>
+            <path d="M108 208 H650" class="shield-wire"/>
+            <circle cx="650" cy="208" r="8" class="earth-dot"/>
+            <text x="380" y="255" text-anchor="middle" class="svg-small">Loop current passes through transmitter and PLC input in series</text>
+          </svg>
+          <div class="terminal-list">
+            <span>PSU + to TX +</span>
+            <span>TX - to PLC AI I+</span>
+            <span>PLC AI COM to PSU -</span>
+            <span>Screen to panel earth only</span>
+          </div>
+          <ul>
+            <li>Use analog input set to current mode, not voltage mode.</li>
+            <li>Connect shield to instrument earth or panel earth at one end only unless the site standard says otherwise.</li>
+            <li>PLC scaling example: 4 mA = 0 percent, 12 mA = 50 percent, 20 mA = 100 percent.</li>
+          </ul>
+        </article>
+        <article class="wiring-card">
+          <h3>4-wire transmitter to analog input</h3>
+          <svg class="schematic-svg" viewBox="0 0 760 280" role="img" aria-label="Four wire transmitter to PLC analog input">
+            <text x="34" y="30" class="svg-title">DWG-PLC-AI-002 | externally powered transmitter</text>
+            <text x="390" y="30" class="svg-small">Cable: PWR-104 + SIG-104</text>
+            <rect x="40" y="54" width="150" height="88" rx="10" class="box"/>
+            <text x="115" y="90" text-anchor="middle" class="svg-label">Supply</text>
+            <text x="76" y="126" class="svg-small">L+</text><text x="144" y="126" class="svg-small">M</text>
+            <rect x="300" y="42" width="160" height="150" rx="12" class="green-box"/>
+            <text x="380" y="78" text-anchor="middle" class="svg-label">4-wire TX</text>
+            <text x="324" y="118" class="svg-small">P+</text><text x="388" y="118" class="svg-small">P-</text>
+            <text x="324" y="162" class="svg-small">AO+</text><text x="388" y="162" class="svg-small">AO-</text>
+            <rect x="570" y="82" width="150" height="88" rx="10" class="box"/>
+            <text x="645" y="118" text-anchor="middle" class="svg-label">PLC AI</text>
+            <text x="604" y="154" class="svg-small">I+</text><text x="674" y="154" class="svg-small">COM</text>
+            <path d="M76 126 H324" class="wire-red"/><path d="M388 126 H144" class="wire-dark"/>
+            <path d="M324 162 H604" class="wire-blue"/><path d="M388 162 H674" class="wire-dark"/>
+          </svg>
+          <div class="terminal-list">
+            <span>Supply L+ to TX P+</span>
+            <span>Supply M to TX P-</span>
+            <span>TX AO+ to PLC I+</span>
+            <span>TX AO- to PLC COM</span>
+          </div>
+          <ul>
+            <li>Power and signal are separate circuits; do not place the PLC input in the supply line.</li>
+            <li>Check whether the output is active or passive before wiring.</li>
+            <li>For voltage output, use PLC voltage input and scale the engineering range correctly.</li>
+          </ul>
+        </article>
+        <article class="wiring-card">
+          <h3>Digital sensor or switch to PLC input</h3>
+          <svg class="schematic-svg" viewBox="0 0 760 280" role="img" aria-label="Digital switch to PLC input">
+            <text x="34" y="30" class="svg-title">DWG-PLC-DI-001 | dry contact input</text>
+            <text x="368" y="30" class="svg-small">Typical for pressure, level, flow and limit switches</text>
+            <rect x="42" y="70" width="150" height="92" rx="10" class="box"/>
+            <text x="117" y="106" text-anchor="middle" class="svg-label">24 VDC</text>
+            <text x="82" y="144" class="svg-small">+</text><text x="146" y="144" class="svg-small">0V</text>
+            <rect x="308" y="66" width="122" height="100" rx="12" class="green-box"/>
+            <text x="369" y="108" text-anchor="middle" class="svg-label">Switch</text>
+            <circle cx="346" cy="142" r="7" fill="#18232d"/><circle cx="394" cy="142" r="7" fill="#18232d"/>
+            <path d="M346 142 L386 124" class="wire-dark"/>
+            <rect x="570" y="70" width="150" height="92" rx="10" class="box"/>
+            <text x="645" y="106" text-anchor="middle" class="svg-label">PLC DI</text>
+            <text x="602" y="144" class="svg-small">IN</text><text x="672" y="144" class="svg-small">COM</text>
+            <path d="M82 144 H346" class="wire-red"/><path d="M394 142 H602" class="wire-red"/>
+            <path d="M672 144 H146" class="wire-dark"/>
+          </svg>
+          <div class="terminal-list">
+            <span>+24 V through field contact</span>
+            <span>Contact return to PLC IN</span>
+            <span>PLC COM to 0 V</span>
+            <span>Use relay if voltages differ</span>
+          </div>
+          <ul>
+            <li>Sourcing input usually receives +24 V through the field contact; sinking input wiring may be opposite.</li>
+            <li>Use interposing relay contacts when field voltage differs from PLC input voltage.</li>
+            <li>Prove open and closed state in the PLC tag monitor and check alarm inversion.</li>
+          </ul>
+        </article>
+        <article class="wiring-card">
+          <h3>PLC analog output to valve positioner or VSD speed</h3>
+          <svg class="schematic-svg" viewBox="0 0 760 280" role="img" aria-label="PLC analog output to valve or VSD">
+            <text x="34" y="30" class="svg-title">DWG-PLC-AO-001 | modulating final element</text>
+            <text x="382" y="30" class="svg-small">4-20 mA command to valve or drive</text>
+            <rect x="48" y="74" width="160" height="92" rx="10" class="box"/>
+            <text x="128" y="110" text-anchor="middle" class="svg-label">PLC AO</text>
+            <text x="84" y="146" class="svg-small">AO+</text><text x="154" y="146" class="svg-small">COM</text>
+            <rect x="320" y="56" width="154" height="128" rx="12" class="green-box"/>
+            <text x="397" y="98" text-anchor="middle" class="svg-label">Positioner</text>
+            <text x="356" y="148" class="svg-small">+</text><text x="430" y="148" class="svg-small">-</text>
+            <rect x="578" y="74" width="132" height="92" rx="10" class="box"/>
+            <text x="644" y="110" text-anchor="middle" class="svg-label">Valve</text>
+            <path d="M84 146 H356" class="wire-blue"/><path d="M430 146 H154" class="wire-dark"/>
+            <path d="M474 120 H578" class="wire-green"/>
+          </svg>
+          <div class="terminal-list">
+            <span>PLC AO+ to device +</span>
+            <span>Device - to PLC AO COM</span>
+            <span>Feedback to separate AI if used</span>
+            <span>Confirm active/passive loop</span>
+          </div>
+          <ul>
+            <li>Confirm active/passive loop requirements for the AO card and receiving device.</li>
+            <li>Scale command as 4 mA = closed/minimum and 20 mA = open/maximum unless the process requires reverse action.</li>
+            <li>Stroke the final element and verify feedback, travel limits, fail position and interlocks.</li>
+          </ul>
+        </article>
+        <article class="wiring-card">
+          <h3>RTD and thermocouple to PLC temperature module</h3>
+          <svg class="schematic-svg" viewBox="0 0 760 280" role="img" aria-label="Temperature sensor to PLC module">
+            <text x="34" y="30" class="svg-title">DWG-PLC-TI-001 | direct temperature input</text>
+            <text x="392" y="30" class="svg-small">Use RTD/TC module, not standard current AI</text>
+            <rect x="56" y="70" width="160" height="98" rx="10" class="green-box"/>
+            <text x="136" y="106" text-anchor="middle" class="svg-label">RTD / TC</text>
+            <text x="92" y="144" class="svg-small">A</text><text x="136" y="144" class="svg-small">B</text><text x="178" y="144" class="svg-small">b</text>
+            <rect x="520" y="70" width="176" height="98" rx="10" class="box"/>
+            <text x="608" y="106" text-anchor="middle" class="svg-label">PLC temp AI</text>
+            <text x="552" y="144" class="svg-small">A</text><text x="608" y="144" class="svg-small">B</text><text x="664" y="144" class="svg-small">b</text>
+            <path d="M92 144 H552" class="wire-red"/><path d="M136 144 H608" class="wire-blue"/><path d="M178 144 H664" class="wire-dark"/>
+          </svg>
+          <div class="terminal-list">
+            <span>RTD A to module A</span>
+            <span>RTD B to module B</span>
+            <span>RTD b to module b</span>
+            <span>TC polarity must match cable type</span>
+          </div>
+          <ul>
+            <li>Use a temperature input module, not a standard 4-20 mA card, unless a transmitter is installed.</li>
+            <li>RTD 3-wire: two same-color leads usually go to B and b; single lead goes to A.</li>
+            <li>Thermocouple: maintain polarity and use the correct extension cable type to the cold junction module.</li>
+          </ul>
+        </article>
+        <article class="wiring-card">
+          <h3>Pulse, frequency and encoder signals</h3>
+          <svg class="schematic-svg" viewBox="0 0 760 280" role="img" aria-label="Pulse encoder to PLC high speed counter">
+            <text x="34" y="30" class="svg-title">DWG-PLC-HSC-001 | encoder or pulse input</text>
+            <text x="388" y="30" class="svg-small">Use high-speed counter / motion module</text>
+            <rect x="58" y="60" width="150" height="116" rx="10" class="green-box"/>
+            <text x="133" y="96" text-anchor="middle" class="svg-label">Encoder</text>
+            <text x="92" y="138" class="svg-small">A</text><text x="132" y="138" class="svg-small">B</text><text x="174" y="138" class="svg-small">Z</text>
+            <rect x="522" y="60" width="180" height="116" rx="10" class="box"/>
+            <text x="612" y="96" text-anchor="middle" class="svg-label">PLC HSC</text>
+            <text x="548" y="138" class="svg-small">A</text><text x="612" y="138" class="svg-small">B</text><text x="676" y="138" class="svg-small">Z</text>
+            <path d="M92 138 H548" class="wire-red"/><path d="M132 138 H612" class="wire-blue"/><path d="M174 138 H676" class="wire-green"/>
+            <text x="380" y="226" text-anchor="middle" class="svg-small">Use shielded twisted pairs and correct PNP/NPN or line-driver input type</text>
+          </svg>
+          <div class="terminal-list">
+            <span>A phase to HSC A</span>
+            <span>B phase to HSC B</span>
+            <span>Z index to HSC Z</span>
+            <span>Shield earth at PLC end</span>
+          </div>
+          <ul>
+            <li>High-speed signals need a high-speed counter or motion module, not a slow digital input.</li>
+            <li>Set pulses per revolution, engineering units, debounce/filter and direction logic.</li>
+            <li>Compare displayed speed, count or total with a handheld tachometer or known reference.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="calibration">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="calEyebrow">Calibration workflow</p>
+        <h2 data-i18n="calTitle">From bench setup to signed handover.</h2>
+      </div>
+      <div class="method-grid">
+        <article>
+          <h3>4-20 mA transmitter method</h3>
+          <p>Connect a loop calibrator in series. Record as-found at 0, 25, 50, 75 and 100 percent. For a 0-10 bar range, apply 0, 2.5, 5, 7.5 and 10 bar and expect 4, 8, 12, 16 and 20 mA. Adjust only if outside tolerance, then repeat upscale and downscale.</p>
+        </article>
+        <article>
+          <h3>Pressure and DP method</h3>
+          <p>Isolate and vent safely. Connect a certified pressure source to the correct side. Equalize DP before zero. Apply five points slowly, allow stabilization, tap lightly only if procedure permits, then check hysteresis on the return points.</p>
+        </article>
+        <article>
+          <h3>Temperature method</h3>
+          <p>For transmitter calibration, simulate RTD resistance or thermocouple mV with cold-junction compensation enabled. For sensor calibration, use a dry block or bath with a reference probe and allow enough soak time before recording readings.</p>
+        </article>
+        <article>
+          <h3>Flow method</h3>
+          <p>For magmeters and Coriolis meters, perform zero only with a full pipe and no flow. For DP flow, calibrate the DP transmitter to the calculated range and verify square-root extraction in transmitter or PLC, but not both.</p>
+        </article>
+        <article>
+          <h3>Level method</h3>
+          <p>For radar or ultrasonic, measure empty distance, full distance, nozzle height and blocking distance. Confirm echo quality, map false echoes, then test output at known level or by simulation. For DP level, calculate wet-leg or dry-leg range before applying pressure.</p>
+        </article>
+        <article>
+          <h3>Analytical method</h3>
+          <p>Clean probe, inspect electrolyte or membrane, then calibrate with fresh standards. pH normally uses pH 7 first, then pH 4 or 10. Conductivity uses a certified standard near the process value. Record sample temperature and slope/offset.</p>
+        </article>
+        <article>
+          <h3>Control valve method</h3>
+          <p>Confirm air supply, fail action and mechanical travel. Command 4, 8, 12, 16 and 20 mA. Verify actual stem or shaft position, feedback signal, travel limits, seat leakage requirement and response without hunting.</p>
+        </article>
+        <article>
+          <h3>VSD commissioning method</h3>
+          <p>Enter motor nameplate voltage, current, frequency, speed and power. Run motor identification if allowed. Verify direction uncoupled where possible, then test 0, 25, 50, 75 and 100 percent speed reference, start/stop source, fault relay and emergency stop chain.</p>
+        </article>
+      </div>
+      <div class="timeline">
+        <div class="time-step">
+          <span>01</span>
+          <h3 data-i18n="cal1Title">Identify</h3>
+          <p data-i18n="cal1Text">Check tag, service, hazardous area rating, range, units, process connection and datasheet revision.</p>
+        </div>
+        <div class="time-step">
+          <span>02</span>
+          <h3 data-i18n="cal2Title">Isolate</h3>
+          <p data-i18n="cal2Text">Follow permit, LOTO and bypass procedure. Protect the plant before disconnecting or simulating.</p>
+        </div>
+        <div class="time-step">
+          <span>03</span>
+          <h3 data-i18n="cal3Title">Simulate</h3>
+          <p data-i18n="cal3Text">Apply known pressure, temperature, level or electrical signal at 0, 25, 50, 75 and 100 percent.</p>
+        </div>
+        <div class="time-step">
+          <span>04</span>
+          <h3 data-i18n="cal4Title">Trim</h3>
+          <p data-i18n="cal4Text">Adjust sensor trim or output trim only when error exceeds tolerance and the procedure allows it.</p>
+        </div>
+        <div class="time-step">
+          <span>05</span>
+          <h3 data-i18n="cal5Title">Document</h3>
+          <p data-i18n="cal5Text">Record as-found, as-left, serial number, calibrator ID, technician, date and next due date.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-reference" id="quick-reference">
+      <div>
+        <p class="eyebrow" data-i18n="checkEyebrow">Field checklist</p>
+        <h2 data-i18n="checkTitle">Before energizing any instrument</h2>
+      </div>
+      <div class="checklist">
+        <label><input type="checkbox"> <span data-i18n="check1">Correct tag and device type installed</span></label>
+        <label><input type="checkbox"> <span data-i18n="check2">Cable gland, seal and IP rating complete</span></label>
+        <label><input type="checkbox"> <span data-i18n="check3">Polarity, terminal numbers and screen checked</span></label>
+        <label><input type="checkbox"> <span data-i18n="check4">Hazardous area barrier or isolator matches loop drawing</span></label>
+        <label><input type="checkbox"> <span data-i18n="check5">Range, units, damping and fail direction configured</span></label>
+        <label><input type="checkbox"> <span data-i18n="check6">PLC/DCS scaling and alarms verified with operations</span></label>
+      </div>
+    </section>
+
+    <section class="section video-library" id="video-library">
+      <div class="section-head">
+        <p class="eyebrow">YouTube training links</p>
+        <h2>Calibration and wiring videos for self-study.</h2>
+        <p>Use these links as learning support, then confirm the exact terminals, safety requirements and parameters in the current manual for the device installed on site.</p>
+      </div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/watch?v=20QltAiD_G4" target="_blank" rel="noreferrer">
+          <span>4-20 mA and PLC wiring</span>
+          <strong>4-20 mA current signal wiring, scaling and troubleshooting</strong>
+          <small>Good for 2-wire and 4-wire transmitter loops into PLC analog inputs.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=pImoFK9q1fo" target="_blank" rel="noreferrer">
+          <span>Level transmitter</span>
+          <strong>VEGAFLEX / radar level transmitter configuration</strong>
+          <small>Useful for learning level setup concepts before applying the vendor manual.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=sNzbj-t2ZPM" target="_blank" rel="noreferrer">
+          <span>Temperature calibration</span>
+          <strong>RTD and 4-20 mA transmitter calibration</strong>
+          <small>Shows sensor checking, simulation and transmitter output verification.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=IvCZgGI3Td8" target="_blank" rel="noreferrer">
+          <span>Temperature transmitter</span>
+          <strong>Temperature transmitter calibration and RTD wiring</strong>
+          <small>Helpful for RTD, thermocouple and DCS/PLC output checking.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=S6zoa_TeXD8" target="_blank" rel="noreferrer">
+          <span>VSD / drive</span>
+          <strong>SINAMICS G120 easy commissioning</strong>
+          <small>Drive setup reference for motor data, commissioning and basic parameters.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=industrial+pH+probe+calibration+transmitter" target="_blank" rel="noreferrer">
+          <span>Analytical</span>
+          <strong>Search: pH probe and analyzer calibration</strong>
+          <small>Use for pH 7 / pH 4 or pH 10 buffer calibration examples.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=control+valve+positioner+calibration+4-20mA" target="_blank" rel="noreferrer">
+          <span>Control valve</span>
+          <strong>Search: positioner calibration and valve stroking</strong>
+          <small>Use for smart positioner auto-stroke and 4-20 mA travel checks.</small>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/results?search_query=industrial+gas+detector+calibration+bump+test" target="_blank" rel="noreferrer">
+          <span>Safety instruments</span>
+          <strong>Search: gas detector bump test and calibration</strong>
+          <small>Use for LEL, oxygen and toxic gas detector calibration practice.</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="vendors">
+      <div class="section-head">
+        <p class="eyebrow" data-i18n="vendorEyebrow">Vendor coverage</p>
+        <h2 data-i18n="vendorTitle">Use the same fundamentals across major automation suppliers.</h2>
+        <p data-i18n="vendorBody">The drawings are vendor-neutral, so technicians can apply the principles to devices from Vega, Endress+Hauser, Siemens, ABB, Emerson, Yokogawa, Schneider Electric, Rockwell Automation, Danfoss, WEG and similar manufacturers. Always confirm the exact terminals and parameters in the current product manual before work starts.</p>
+      </div>
+      <div class="vendor-grid">
+        <span>Vega</span>
+        <span>Endress+Hauser</span>
+        <span>Siemens</span>
+        <span>ABB</span>
+        <span>Emerson / Rosemount</span>
+        <span>Yokogawa</span>
+        <span>Schneider Electric</span>
+        <span>Rockwell Automation</span>
+        <span>Danfoss</span>
+        <span>WEG</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footer">Training reference only. Follow site procedures, permits, isolation rules and the latest manufacturer manual.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
